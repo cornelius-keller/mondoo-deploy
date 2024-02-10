@@ -19,5 +19,5 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          args: --build-arg DOWNLOAD_URL=${{ github.event.url }}
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mondoo:${{ github.event.version }}
+          args: --build-arg DOWNLOAD_URL=${{ github.event.client_payload.url }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mondoo:${{ github.event.client_payload.version }}
